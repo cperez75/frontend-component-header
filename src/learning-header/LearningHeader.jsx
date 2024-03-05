@@ -40,7 +40,8 @@ const LearningHeader = ({
   );
 
   return (
-    <header className="learning-header">
+
+    <header className="learning-header">HOLA CARACOLA
       <a className="sr-only sr-only-focusable" href="#main-content">{intl.formatMessage(messages.skipNavLink)}</a>
       <div className="container-xl py-2 d-flex align-items-center">
         {headerLogo}
