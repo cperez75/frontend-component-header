@@ -32,7 +32,7 @@ const LearningHeader = ({
 
   const headerLogo = (
     <LinkedLogo
-      className="logo"
+      className="logo cperez"
       href={`${getConfig().LMS_BASE_URL}/dashboard`}
       src={getConfig().LOGO_URL}
       alt={getConfig().SITE_NAME}
