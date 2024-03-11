@@ -40,7 +40,7 @@ const LearningHeader = ({
   );
 
   return (
-    <header className="learning-header cperez">Hello world!
+    <header className="learning-header">
       <a className="sr-only sr-only-focusable" href="#main-content">{intl.formatMessage(messages.skipNavLink)}</a>
       <div className="container-xl py-2 d-flex align-items-center">
         {headerLogo}
@@ -57,7 +57,21 @@ const LearningHeader = ({
         <AnonymousUserMenu />
         )}
       </div>
+      <div class="px-5 md:px-10 lg:px-16 xl:px-16" className="gw_course_title">
+        <div>
+          <h1 style="font-weight: 800; text-transform: uppercase; font-size: 3rem !important; margin-bottom: 0px;">
+            {courseTitle}
+          </h1>
+        </div>
+        <div class="mt-2 mb-2">
+            <div class="gw_course_progress">
+                <span>Progreso:</span>
+                <span id="gw_course_progress_value"></span>
+            </div>
+        </div>
+      </div>
     </header>
+    
   );
 };
 
@@ -77,3 +91,28 @@ LearningHeader.defaultProps = {
 };
 
 export default injectIntl(LearningHeader);
+
+
+{authenticatedUser && courseTitle && (
+  
+  <script>
+
+ /* jQuery( document ).ready(function( $ ) {
+
+      let updateUserStatus = function(){
+          $("#gw_course_progress_value").load("/os-api/api/status/${course.id}/${user.username}");
+      }
+
+      updateUserStatus();
+
+      $('div.sequence-nav > button.sequence-nav-button.button-next').live('click', function (){
+        updateUserStatus();
+      });
+
+  });*/
+
+  </script>
+)}
+
+
+
