@@ -27,9 +27,9 @@ LinkedLogo.propTypes = {
 
 const { authenticatedUser } = useContext(AppContext);
 
-const [apiResponse, setApiResponse] = useState(null);
+{/*const [apiResponse, setApiResponse] = useState(null);
 
-{/*useEffect(() => {
+useEffect(() => {
   const fetchData = async () => {
     try {
       const response = await fetch(`/os-api/api/status/${course_id}/${authenticatedUser.username}`);
@@ -84,7 +84,7 @@ const LearningHeader = ({
         <div class="mt-2 mb-2">
             <div class="gw_course_progress">
                 <span>Progreso:</span>
-                <span id="gw_course_progress_value">{apiResponse}</span>
+                <span id="gw_course_progress_value">4%</span>
             </div>
         </div>
       </div>
