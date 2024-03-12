@@ -70,34 +70,6 @@ var APIService = /*#__PURE__*/_createClass(function APIService() {
       return _ref2.apply(this, arguments);
     };
   }());
-  _defineProperty(this, "vote", /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(course_id, block_id, value) {
-      var URL;
-      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            URL = _this.buildURL(course_id, block_id, 'vote');
-            _context3.next = 3;
-            return _this.handleFetch(URL, {
-              method: 'POST',
-              body: JSON.stringify({
-                value: value
-              }),
-              mode: 'cors',
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            });
-          case 3:
-          case "end":
-            return _context3.stop();
-        }
-      }, _callee3);
-    }));
-    return function (_x5, _x6, _x7) {
-      return _ref3.apply(this, arguments);
-    };
-  }());
   var _useContext = useContext(AppContext),
     authenticatedUser = _useContext.authenticatedUser;
   this.username = authenticatedUser.username;

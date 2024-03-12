@@ -33,17 +33,5 @@ class APIService {
         });
     };
 
-    vote = async (course_id, block_id, value) => {
-        const URL = this.buildURL(course_id, block_id, 'vote');
-
-        await this.handleFetch(URL, {
-            method: 'POST',
-            body: JSON.stringify({ value }),
-            mode: 'cors',
-            headers: { 
-                'Content-Type': 'application/json'
-            }
-        });
-    };
 }
 export default APIService;
