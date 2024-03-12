@@ -99,6 +99,8 @@ var LearningHeader = function LearningHeader(_ref2) {
   }, []);
   return /*#__PURE__*/React.createElement("header", {
     className: "learning-header"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: "{{ 'background-color': '#00338d' }}"
   }, /*#__PURE__*/React.createElement("a", {
     className: "sr-only sr-only-focusable",
     href: "#main-content"
@@ -109,15 +111,10 @@ var LearningHeader = function LearningHeader(_ref2) {
     style: {
       lineHeight: 1
     }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "d-block small m-0"
-  }, courseOrg, " ", courseNumber), /*#__PURE__*/React.createElement("span", {
-    className: "d-block m-0 font-weight-bold course-title"
-  }, courseTitle)), showUserDropdown && authenticatedUser && /*#__PURE__*/React.createElement(AuthenticatedUserDropdown, {
+  }), showUserDropdown && authenticatedUser && /*#__PURE__*/React.createElement(AuthenticatedUserDropdown, {
     username: authenticatedUser.username
-  }), showUserDropdown && !authenticatedUser && /*#__PURE__*/React.createElement(AnonymousUserMenu, null)), /*#__PURE__*/React.createElement("div", {
-    "class": "px-5 md:px-10 lg:px-16 xl:px-16",
-    className: "gw_course_title"
+  }), showUserDropdown && !authenticatedUser && /*#__PURE__*/React.createElement(AnonymousUserMenu, null))), /*#__PURE__*/React.createElement("div", {
+    className: "container-xl py-2 d-flex align-items-center gw_course_title"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     style: {
       'font-weight': '800',

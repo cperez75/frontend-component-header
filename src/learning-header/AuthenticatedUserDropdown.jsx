@@ -11,7 +11,7 @@ import messages from './messages';
 
 const AuthenticatedUserDropdown = ({ intl, username }) => {
   const dashboardMenuItem = (
-    <Dropdown.Item href={`${getConfig().LMS_BASE_URL}/gwc/dashboard`}>
+    <Dropdown.Item href={`${getConfig().GW_URL}/gwc/dashboard`}>
       {intl.formatMessage(messages.dashboard)}
     </Dropdown.Item>
   );

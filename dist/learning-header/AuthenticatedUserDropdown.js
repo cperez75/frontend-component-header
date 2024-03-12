@@ -10,7 +10,7 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
   var intl = _ref.intl,
     username = _ref.username;
   var dashboardMenuItem = /*#__PURE__*/React.createElement(Dropdown.Item, {
-    href: "".concat(getConfig().LMS_BASE_URL, "/gwc/dashboard")
+    href: "".concat(getConfig().GW_URL, "/gwc/dashboard")
   }, intl.formatMessage(messages.dashboard));
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Dropdown, {
     className: "user-dropdown ml-3"
