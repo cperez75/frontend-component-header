@@ -29,7 +29,7 @@ const { authenticatedUser } = useContext(AppContext);
 
 const [apiResponse, setApiResponse] = useState(null);
 
-useEffect(() => {
+{/*useEffect(() => {
   const fetchData = async () => {
     try {
       const response = await fetch(`/os-api/api/status/${course_id}/${authenticatedUser.username}`);
@@ -41,7 +41,7 @@ useEffect(() => {
   };
 
   fetchData();
-}, []);
+}, []);*/}
 
 const LearningHeader = ({
   courseOrg, courseNumber, courseTitle, intl, showUserDropdown,
