@@ -97,7 +97,7 @@ export default injectIntl(LearningHeader);
   
   <script>
 
- /* jQuery( document ).ready(function( $ ) {
+ {/* jQuery( document ).ready(function( $ ) {
 
       let updateUserStatus = function(){
           $("#gw_course_progress_value").load("/os-api/api/status/${course.id}/${user.username}");
@@ -109,7 +109,7 @@ export default injectIntl(LearningHeader);
         updateUserStatus();
       });
 
-  });*/
+  });*/}
 
   </script>
 )}
