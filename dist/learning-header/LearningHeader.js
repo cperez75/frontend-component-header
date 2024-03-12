@@ -119,7 +119,12 @@ var LearningHeader = function LearningHeader(_ref2) {
     "class": "px-5 md:px-10 lg:px-16 xl:px-16",
     className: "gw_course_title"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
-    style: "font-weight: 800; text-transform: uppercase; font-size: 3rem !important; margin-bottom: 0px;"
+    style: {
+      'font-weight': '800',
+      'text-transform': 'uppercase',
+      'font-size': '3rem !important',
+      'margin-bottom': '0px'
+    }
   }, courseTitle)), /*#__PURE__*/React.createElement("div", {
     "class": "mt-2 mb-2"
   }, /*#__PURE__*/React.createElement("div", {

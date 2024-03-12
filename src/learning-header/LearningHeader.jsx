@@ -82,7 +82,7 @@ const LearningHeader = ({
       </div>
       <div class="px-5 md:px-10 lg:px-16 xl:px-16" className="gw_course_title">
         <div>
-          <h1 style="font-weight: 800; text-transform: uppercase; font-size: 3rem !important; margin-bottom: 0px;">
+          <h1 style={{ 'font-weight': '800', 'text-transform': 'uppercase', 'font-size': '3rem !important', 'margin-bottom': '0px' }}>
             {courseTitle}
           </h1>
         </div>
