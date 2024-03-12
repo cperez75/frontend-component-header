@@ -8,6 +8,8 @@ import AnonymousUserMenu from './AnonymousUserMenu';
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import messages from './messages';
 
+import { useSelector } from 'react-redux';
+
 const LinkedLogo = ({
   href,
   src,
@@ -25,28 +27,15 @@ LinkedLogo.propTypes = {
   alt: PropTypes.string.isRequired,
 };
 
-const { authenticatedUser } = useContext(AppContext);
-
-{/*const [apiResponse, setApiResponse] = useState(null);
-
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`/os-api/api/status/${course_id}/${authenticatedUser.username}`);
-      const textData = await response.text();
-      setApiResponse(textData);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  fetchData();
-}, []);*/}
-
 const LearningHeader = ({
   courseOrg, courseNumber, courseTitle, intl, showUserDropdown,
 }) => {
-  //const { authenticatedUser } = useContext(AppContext);
+  const { authenticatedUser } = useContext(AppContext);
+
+  const {
+    courseId,
+    proctoringPanelStatus,
+  } = useSelector(state => state.courseHome)
 
   const headerLogo = (
     <LinkedLogo
@@ -56,6 +45,22 @@ const LearningHeader = ({
       alt={getConfig().SITE_NAME}
     />
   );
+
+  const [apiResponse, setApiResponse] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/os-api/api/status/${courseId}/${authenticatedUser.username}`);
+        const textData = await response.text();
+        setApiResponse(textData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <header className="learning-header">
@@ -84,7 +89,7 @@ const LearningHeader = ({
         <div class="mt-2 mb-2">
             <div class="gw_course_progress">
                 <span>Progreso:</span>
-                <span id="gw_course_progress_value">4%</span>
+                <span id="gw_course_progress_value">{apiResponse}</span>
             </div>
         </div>
       </div>

@@ -27,8 +27,13 @@ var messages = defineMessages({
   },
   'header.user.menu.profile': {
     id: 'header.user.menu.profile',
-    defaultMessage: 'Profile',
+    defaultMessage: 'My Profile',
     description: 'Link to the user profile'
+  },
+  'header.user.menu.courses': {
+    id: 'header.user.menu.courses',
+    defaultMessage: 'My Courses',
+    description: 'Link to the user courses'
   },
   'header.user.menu.account.settings': {
     id: 'header.user.menu.account.settings',
