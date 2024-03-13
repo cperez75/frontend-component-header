@@ -80,7 +80,7 @@ const LearningHeader = ({
           )}
         </div>
       </div>
-      <div className="container-xl py-2 d-flex align-items-center gw_course_title">
+      <div className="container-xl py-2 gw_course_title">
         <div>
           <h1 style={{ 'font-weight': '800', 'text-transform': 'uppercase', 'font-size': '3rem !important', 'margin-bottom': '0px' }}>
             {courseTitle}

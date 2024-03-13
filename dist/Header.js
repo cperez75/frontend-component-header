@@ -6,7 +6,7 @@ import { APP_CONFIG_INITIALIZED, ensureConfig, mergeConfig, getConfig, subscribe
 import DesktopHeader from './DesktopHeader';
 import MobileHeader from './MobileHeader';
 import messages from './Header.messages';
-ensureConfig(['LMS_BASE_URL', 'LOGOUT_URL', 'LOGIN_URL', 'SITE_NAME', 'LOGO_URL', 'ORDER_HISTORY_URL'], 'Header component');
+ensureConfig(['LMS_BASE_URL', 'LOGOUT_URL', 'LOGIN_URL', 'SITE_NAME', 'LOGO_URL', 'ORDER_HISTORY_URL', 'GW_URL'], 'Header component');
 subscribe(APP_CONFIG_INITIALIZED, function () {
   mergeConfig({
     AUTHN_MINIMAL_HEADER: !!process.env.AUTHN_MINIMAL_HEADER
@@ -29,16 +29,16 @@ var Header = function Header(_ref) {
   };
   var userMenu = authenticatedUser === null ? [] : [{
     type: 'item',
-    href: "".concat(config.LMS_BASE_URL, "/dashboard"),
+    href: "".concat(config.GW_URL, "/gwc/"),
     content: intl.formatMessage(messages['header.user.menu.dashboard'])
   }, {
     type: 'item',
-    href: "".concat(config.ACCOUNT_PROFILE_URL, "/u/").concat(authenticatedUser.username),
+    href: "".concat(config.GW_URL, "/profile"),
     content: intl.formatMessage(messages['header.user.menu.profile'])
   }, {
     type: 'item',
-    href: config.ACCOUNT_SETTINGS_URL,
-    content: intl.formatMessage(messages['header.user.menu.account.settings'])
+    href: "".concat(config.GW_URL, "/my-courses"),
+    content: intl.formatMessage(messages['header.user.menu.courses'])
   }, {
     type: 'item',
     href: config.LOGOUT_URL,

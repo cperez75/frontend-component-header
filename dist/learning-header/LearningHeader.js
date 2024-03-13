@@ -116,7 +116,7 @@ var LearningHeader = function LearningHeader(_ref2) {
   }), showUserDropdown && authenticatedUser && /*#__PURE__*/React.createElement(AuthenticatedUserDropdown, {
     username: authenticatedUser.username
   }), showUserDropdown && !authenticatedUser && /*#__PURE__*/React.createElement(AnonymousUserMenu, null))), /*#__PURE__*/React.createElement("div", {
-    className: "container-xl py-2 d-flex align-items-center gw_course_title"
+    className: "container-xl py-2 gw_course_title"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     style: {
       'font-weight': '800',

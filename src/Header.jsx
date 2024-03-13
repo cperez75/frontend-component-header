@@ -22,6 +22,7 @@ ensureConfig([
   'SITE_NAME',
   'LOGO_URL',
   'ORDER_HISTORY_URL',
+  'GW_URL'
 ], 'Header component');
 
 subscribe(APP_CONFIG_INITIALIZED, () => {
@@ -50,18 +51,18 @@ const Header = ({ intl }) => {
   const userMenu = authenticatedUser === null ? [] : [
     {
       type: 'item',
-      href: `${config.LMS_BASE_URL}/dashboard`,
+      href: `${config.GW_URL}/gwc/`,
       content: intl.formatMessage(messages['header.user.menu.dashboard']),
     },
     {
       type: 'item',
-      href: `${config.ACCOUNT_PROFILE_URL}/u/${authenticatedUser.username}`,
+      href: `${config.GW_URL}/profile`,
       content: intl.formatMessage(messages['header.user.menu.profile']),
     },
     {
       type: 'item',
-      href: config.ACCOUNT_SETTINGS_URL,
-      content: intl.formatMessage(messages['header.user.menu.account.settings']),
+      href: `${config.GW_URL}/my-courses`,
+      content: intl.formatMessage(messages['header.user.menu.courses']),
     },
     {
       type: 'item',
