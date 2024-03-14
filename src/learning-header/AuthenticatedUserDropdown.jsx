@@ -26,10 +26,10 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
           </span>
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu-right">
-          <Dropdown.Item href={`${getConfig().GW_URL}/profile`}>
+          <Dropdown.Item href={getConfig().ACCOUNT_PROFILE_URL}>
             {intl.formatMessage(messages.profile)}
           </Dropdown.Item>
-          <Dropdown.Item href={`${getConfig().GW_URL}/my-courses`}>
+          <Dropdown.Item href={getConfig().ACCOUNT_SETTINGS_URL}>
             {intl.formatMessage(messages.courses)}
           </Dropdown.Item>
           {dashboardMenuItem}

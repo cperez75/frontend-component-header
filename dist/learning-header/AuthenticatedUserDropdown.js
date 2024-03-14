@@ -26,9 +26,9 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
   }, username)), /*#__PURE__*/React.createElement(Dropdown.Menu, {
     className: "dropdown-menu-right"
   }, /*#__PURE__*/React.createElement(Dropdown.Item, {
-    href: "".concat(getConfig().GW_URL, "/profile")
+    href: getConfig().ACCOUNT_PROFILE_URL
   }, intl.formatMessage(messages.profile)), /*#__PURE__*/React.createElement(Dropdown.Item, {
-    href: "".concat(getConfig().GW_URL, "/my-courses")
+    href: getConfig().ACCOUNT_SETTINGS_URL
   }, intl.formatMessage(messages.courses)), dashboardMenuItem, /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: getConfig().LOGOUT_URL
   }, intl.formatMessage(messages.signOut)))));

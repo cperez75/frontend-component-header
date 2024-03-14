@@ -13,8 +13,13 @@ const messages = defineMessages({
   },
   profile: {
     id: 'header.menu.profile.label',
-    defaultMessage: 'Profile',
+    defaultMessage: 'My Profile',
     description: 'The text for the user menu Profile navigation link.',
+  },
+  courses: {
+    id: 'header.menu.courses.label',
+    defaultMessage: 'My Courses',
+    description: 'The text for the user menu Courses navigation link.'
   },
   account: {
     id: 'header.menu.account.label',
