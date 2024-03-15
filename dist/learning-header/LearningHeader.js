@@ -14,7 +14,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { getConfig } from '@edx/frontend-platform';
+import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
 import AnonymousUserMenu from './AnonymousUserMenu';
@@ -43,15 +43,17 @@ var LearningHeader = function LearningHeader(_ref2) {
   var courseOrg = _ref2.courseOrg,
     courseNumber = _ref2.courseNumber,
     courseTitle = _ref2.courseTitle,
+    courseId = _ref2.courseId,
     intl = _ref2.intl,
     showUserDropdown = _ref2.showUserDropdown;
   var _useContext = useContext(AppContext),
     authenticatedUser = _useContext.authenticatedUser;
-  var _useSelector = useSelector(function (state) {
-      return state.courseHome;
-    }),
-    courseId = _useSelector.courseId,
-    proctoringPanelStatus = _useSelector.proctoringPanelStatus;
+
+  /*const {
+    courseId,
+    proctoringPanelStatus,
+  } = useSelector(state => state.courseHome) */
+
   var headerLogo = /*#__PURE__*/React.createElement(LinkedLogo, {
     className: "logo",
     href: "".concat(getConfig().LMS_BASE_URL, "/dashboard"),
@@ -99,7 +101,7 @@ var LearningHeader = function LearningHeader(_ref2) {
   }, []);
   return /*#__PURE__*/React.createElement("header", {
     className: "learning-header"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, courseId, " / ", authenticatedUser.username, " / ", courseTitle, /*#__PURE__*/React.createElement("div", {
     style: {
       'background-color': '#00338d'
     }
@@ -136,12 +138,14 @@ LearningHeader.propTypes = {
   courseOrg: PropTypes.string,
   courseNumber: PropTypes.string,
   courseTitle: PropTypes.string,
+  courseId: PropTypes.string,
   intl: intlShape.isRequired,
   showUserDropdown: PropTypes.bool
 };
 LearningHeader.defaultProps = {
   courseOrg: null,
   courseNumber: null,
+  courseId: null,
   courseTitle: null,
   showUserDropdown: true
 };

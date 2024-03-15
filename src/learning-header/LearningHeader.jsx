@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { getConfig } from '@edx/frontend-platform';
+import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
 
@@ -28,14 +28,14 @@ LinkedLogo.propTypes = {
 };
 
 const LearningHeader = ({
-  courseOrg, courseNumber, courseTitle, intl, showUserDropdown,
+  courseOrg, courseNumber, courseTitle, courseId, intl, showUserDropdown,
 }) => {
   const { authenticatedUser } = useContext(AppContext);
 
-  const {
+  /*const {
     courseId,
     proctoringPanelStatus,
-  } = useSelector(state => state.courseHome)
+  } = useSelector(state => state.courseHome) */
 
   const headerLogo = (
     <LinkedLogo
@@ -63,7 +63,7 @@ const LearningHeader = ({
   }, []);
 
   return (
-    <header className="learning-header">
+    <header className="learning-header">{courseId} / {authenticatedUser.username} / {courseTitle}
       <div style={{ 'background-color': '#00338d' }}>
         <a className="sr-only sr-only-focusable" href="#main-content">{intl.formatMessage(messages.skipNavLink)}</a>
         <div className="container-xl py-2 d-flex align-items-center">
@@ -102,6 +102,7 @@ LearningHeader.propTypes = {
   courseOrg: PropTypes.string,
   courseNumber: PropTypes.string,
   courseTitle: PropTypes.string,
+  courseId: PropTypes.string,
   intl: intlShape.isRequired,
   showUserDropdown: PropTypes.bool,
 };
@@ -109,6 +110,7 @@ LearningHeader.propTypes = {
 LearningHeader.defaultProps = {
   courseOrg: null,
   courseNumber: null,
+  courseId: null,
   courseTitle: null,
   showUserDropdown: true,
 };

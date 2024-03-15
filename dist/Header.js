@@ -16,7 +16,8 @@ var Header = function Header(_ref) {
   var intl = _ref.intl;
   var _useContext = useContext(AppContext),
     authenticatedUser = _useContext.authenticatedUser,
-    config = _useContext.config;
+    config = _useContext.config,
+    course = _useContext.course;
   var mainMenu = [{
     type: 'item',
     href: "".concat(config.LMS_BASE_URL, "/dashboard"),
@@ -73,7 +74,7 @@ var Header = function Header(_ref) {
     maxWidth: 768
   }, /*#__PURE__*/React.createElement(MobileHeader, props)), /*#__PURE__*/React.createElement(Responsive, {
     minWidth: 769
-  }, /*#__PURE__*/React.createElement(DesktopHeader, props)));
+  }, "Header ", JSON.stringify(course), /*#__PURE__*/React.createElement(DesktopHeader, props)));
 };
 Header.propTypes = {
   intl: intlShape.isRequired

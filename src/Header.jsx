@@ -32,7 +32,7 @@ subscribe(APP_CONFIG_INITIALIZED, () => {
 });
 
 const Header = ({ intl }) => {
-  const { authenticatedUser, config } = useContext(AppContext);
+  const { authenticatedUser, config, course } = useContext(AppContext);
 
   const mainMenu = [
     {
@@ -106,7 +106,7 @@ const Header = ({ intl }) => {
       <Responsive maxWidth={768}>
         <MobileHeader {...props} />
       </Responsive>
-      <Responsive minWidth={769}>
+      <Responsive minWidth={769}>Header {JSON.stringify(course)}
         <DesktopHeader {...props} />
       </Responsive>
     </>

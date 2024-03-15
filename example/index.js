@@ -7,13 +7,13 @@ import { AppContext, AppProvider } from '@edx/frontend-platform/react';
 import Header from '@edx/frontend-component-header';
 
 import './index.scss';
-import StudioHeader from '../src/studio-header/StudioHeader';
+import LearningHeader from '../src/learning-header/LearningHeader';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider>
       {/* We can fake out authentication by including another provider here with the data we want */}
-      <AppContext.Provider value={{
+     {/* <AppContext.Provider value={{
         authenticatedUser: null,
         config: getConfig(),
       }}>
@@ -21,7 +21,7 @@ subscribe(APP_READY, () => {
       </AppContext.Provider>
       <h5 className="mt-2 mb-5">Logged out state</h5>
 
-      {/* We can fake out authentication by including another provider here with the data we want */}
+       We can fake out authentication by including another provider here with the data we want 
       <AppContext.Provider value={{
         authenticatedUser: {
           userId: '123abc',
@@ -32,8 +32,8 @@ subscribe(APP_READY, () => {
         config: getConfig(),
       }}>
         <Header />
-      </AppContext.Provider>
-      <h5 className="mt-2  mb-5">Logged in state</h5>
+    </AppContext.Provider>
+      <h5 className="mt-2  mb-5">Logged in state</h5> */}
       <AppContext.Provider value={{
         authenticatedUser: {
           userId: '123abc',
@@ -43,7 +43,7 @@ subscribe(APP_READY, () => {
         },
         config: getConfig(),
       }}>
-        <StudioHeader
+        <LearningHeader
           number="run123"
           org="testX"
           title="Course Name"
@@ -61,7 +61,7 @@ subscribe(APP_READY, () => {
           outlineLink="#"
         />
       </AppContext.Provider>
-      <h5 className="mt-2">Logged in state for Studio header</h5>
+      <h5 className="mt-2">Logged in state for Learning header</h5>
     </AppProvider>,
     document.getElementById('root'),
   );
