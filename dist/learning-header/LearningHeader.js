@@ -56,8 +56,7 @@ var LearningHeader = function LearningHeader(_ref2) {
 
   var headerLogo = /*#__PURE__*/React.createElement(LinkedLogo, {
     className: "logo",
-    href: "".concat(getConfig().LMS_BASE_URL, "/dashboard"),
-    src: getConfig().LOGO_URL,
+    src: getConfig().LOGO_URL_WHITE,
     alt: getConfig().SITE_NAME
   });
   var _useState = useState(null),
