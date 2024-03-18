@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
@@ -8,7 +10,6 @@ import AnonymousUserMenu from './AnonymousUserMenu';
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import messages from './messages';
 
-import { useSelector } from 'react-redux';
 
 const LinkedLogo = ({
   href,
@@ -28,14 +29,20 @@ LinkedLogo.propTypes = {
 };
 
 const LearningHeader = ({
-  courseOrg, courseNumber, courseTitle, courseId, intl, showUserDropdown,
+  courseOrg, courseNumber, courseTitle, intl, showUserDropdown,
 }) => {
   const { authenticatedUser } = useContext(AppContext);
+  const { courseId: courseIdFromUrl } = useParams();
 
-  /*const {
-    courseId,
-    proctoringPanelStatus,
-  } = useSelector(state => state.courseHome) */
+  useEffect(() => {
+    // The courseId from the URL is the course we WANT to load.
+    dispatch(fetch(courseIdFromUrl));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [courseIdFromUrl]);
+
+  const {
+    courseId
+  } = useSelector(state => state[slice]);
 
   const headerLogo = (
     <LinkedLogo
@@ -101,7 +108,6 @@ LearningHeader.propTypes = {
   courseOrg: PropTypes.string,
   courseNumber: PropTypes.string,
   courseTitle: PropTypes.string,
-  courseId: PropTypes.string,
   intl: intlShape.isRequired,
   showUserDropdown: PropTypes.bool,
 };
@@ -109,7 +115,6 @@ LearningHeader.propTypes = {
 LearningHeader.defaultProps = {
   courseOrg: null,
   courseNumber: null,
-  courseId: null,
   courseTitle: null,
   showUserDropdown: true,
 };

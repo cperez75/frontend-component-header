@@ -13,6 +13,8 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 import React, { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
@@ -20,7 +22,6 @@ import { AppContext } from '@edx/frontend-platform/react';
 import AnonymousUserMenu from './AnonymousUserMenu';
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import messages from './messages';
-import { useSelector } from 'react-redux';
 var LinkedLogo = function LinkedLogo(_ref) {
   var href = _ref.href,
     src = _ref.src,
@@ -43,17 +44,21 @@ var LearningHeader = function LearningHeader(_ref2) {
   var courseOrg = _ref2.courseOrg,
     courseNumber = _ref2.courseNumber,
     courseTitle = _ref2.courseTitle,
-    courseId = _ref2.courseId,
     intl = _ref2.intl,
     showUserDropdown = _ref2.showUserDropdown;
   var _useContext = useContext(AppContext),
     authenticatedUser = _useContext.authenticatedUser;
-
-  /*const {
-    courseId,
-    proctoringPanelStatus,
-  } = useSelector(state => state.courseHome) */
-
+  var _useParams = useParams(),
+    courseIdFromUrl = _useParams.courseId;
+  useEffect(function () {
+    // The courseId from the URL is the course we WANT to load.
+    dispatch(fetch(courseIdFromUrl));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [courseIdFromUrl]);
+  var _useSelector = useSelector(function (state) {
+      return state[slice];
+    }),
+    courseId = _useSelector.courseId;
   var headerLogo = /*#__PURE__*/React.createElement(LinkedLogo, {
     className: "logo",
     src: getConfig().LOGO_URL_WHITE,
@@ -138,14 +143,12 @@ LearningHeader.propTypes = {
   courseOrg: PropTypes.string,
   courseNumber: PropTypes.string,
   courseTitle: PropTypes.string,
-  courseId: PropTypes.string,
   intl: intlShape.isRequired,
   showUserDropdown: PropTypes.bool
 };
 LearningHeader.defaultProps = {
   courseOrg: null,
   courseNumber: null,
-  courseId: null,
   courseTitle: null,
   showUserDropdown: true
 };
