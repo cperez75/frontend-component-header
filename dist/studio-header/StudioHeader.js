@@ -40,7 +40,7 @@ var StudioHeader = function StudioHeader(_ref) {
     maxWidth: 841
   }, /*#__PURE__*/React.createElement(MobileHeader, props)), /*#__PURE__*/React.createElement(Responsive, {
     minWidth: 842
-  }, /*#__PURE__*/React.createElement(HeaderBody, props)));
+  }, " Studio!!", /*#__PURE__*/React.createElement(HeaderBody, props)));
 };
 StudioHeader.propTypes = {
   number: PropTypes.string,

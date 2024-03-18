@@ -101,7 +101,7 @@ var LearningHeader = function LearningHeader(_ref2) {
   }, []);
   return /*#__PURE__*/React.createElement("header", {
     className: "learning-header"
-  }, courseId, " / ", authenticatedUser.username, " / ", courseTitle, " / ", getConfig().GW_URL, /*#__PURE__*/React.createElement("div", {
+  }, courseId, /*#__PURE__*/React.createElement("div", {
     style: {
       'background-color': '#00338d'
     }
@@ -116,7 +116,8 @@ var LearningHeader = function LearningHeader(_ref2) {
       lineHeight: 1
     }
   }), showUserDropdown && authenticatedUser && /*#__PURE__*/React.createElement(AuthenticatedUserDropdown, {
-    username: authenticatedUser.username
+    username: authenticatedUser.username,
+    admin: authenticatedUser.administrator
   }), showUserDropdown && !authenticatedUser && /*#__PURE__*/React.createElement(AnonymousUserMenu, null))), /*#__PURE__*/React.createElement("div", {
     className: "container-xl py-2 gw_course_title"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {

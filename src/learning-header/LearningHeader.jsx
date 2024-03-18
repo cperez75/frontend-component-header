@@ -63,7 +63,7 @@ const LearningHeader = ({
   }, []);
 
   return (
-    <header className="learning-header">{courseId} / {authenticatedUser.username} / {courseTitle} / {getConfig().GW_URL}
+    <header className="learning-header">{courseId}
       <div style={{ 'background-color': '#00338d' }}>
         <a className="sr-only sr-only-focusable" href="#main-content">{intl.formatMessage(messages.skipNavLink)}</a>
         <div className="container-xl py-2 d-flex align-items-center">
@@ -72,7 +72,7 @@ const LearningHeader = ({
           </div>
           {showUserDropdown && authenticatedUser && (
           <AuthenticatedUserDropdown
-            username={authenticatedUser.username}
+            username={authenticatedUser.username} admin={authenticatedUser.administrator}
           />
           )}
           {showUserDropdown && !authenticatedUser && (

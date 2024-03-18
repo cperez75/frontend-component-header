@@ -41,7 +41,7 @@ const StudioHeader = ({
       <Responsive maxWidth={841}>
         <MobileHeader {...props} />
       </Responsive>
-      <Responsive minWidth={842}>
+      <Responsive minWidth={842}> Studio!!
         <HeaderBody {...props} />
       </Responsive>
     </div>

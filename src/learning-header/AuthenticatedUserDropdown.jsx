@@ -9,15 +9,15 @@ import { Dropdown } from '@openedx/paragon';
 
 import messages from './messages';
 
-const AuthenticatedUserDropdown = ({ intl, username }) => {
-  const dashboardMenuItem = (
-    <Dropdown.Item href={`${getConfig().GW_URL}/gwc/`}>
+const AuthenticatedUserDropdown = ({ intl, username, admin }) => {
+  const dashboardMenuItem = admin ? (
+    <Dropdown.Item href={`${getConfig().GW_URL}/gwc/dashboard`}>
       {intl.formatMessage(messages.dashboard)}
     </Dropdown.Item>
-  );
+  ) : null;
 
   return (
-    <>{getConfig().GW_URL}
+    <>
       <Dropdown className="user-dropdown ml-3">
         <Dropdown.Toggle variant="inverse-outline-primary">
           <FontAwesomeIcon icon={faUserCircle} className="d-md-none" size="lg" />

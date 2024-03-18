@@ -8,11 +8,12 @@ import { Dropdown } from '@openedx/paragon';
 import messages from './messages';
 var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
   var intl = _ref.intl,
-    username = _ref.username;
-  var dashboardMenuItem = /*#__PURE__*/React.createElement(Dropdown.Item, {
-    href: "".concat(getConfig().GW_URL, "/gwc/")
-  }, intl.formatMessage(messages.dashboard));
-  return /*#__PURE__*/React.createElement(React.Fragment, null, getConfig().GW_URL, /*#__PURE__*/React.createElement(Dropdown, {
+    username = _ref.username,
+    admin = _ref.admin;
+  var dashboardMenuItem = admin ? /*#__PURE__*/React.createElement(Dropdown.Item, {
+    href: "".concat(getConfig().GW_URL, "/gwc/dashboard")
+  }, intl.formatMessage(messages.dashboard)) : null;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Dropdown, {
     className: "user-dropdown ml-3"
   }, /*#__PURE__*/React.createElement(Dropdown.Toggle, {
     variant: "inverse-outline-primary"
