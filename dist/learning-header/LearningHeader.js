@@ -101,7 +101,7 @@ var LearningHeader = function LearningHeader(_ref2) {
   }, []);
   return /*#__PURE__*/React.createElement("header", {
     className: "learning-header"
-  }, courseId, " / ", authenticatedUser.username, " / ", courseTitle, /*#__PURE__*/React.createElement("div", {
+  }, courseId, " / ", authenticatedUser.username, " / ", courseTitle, " / ", getConfig().GW_URL, /*#__PURE__*/React.createElement("div", {
     style: {
       'background-color': '#00338d'
     }

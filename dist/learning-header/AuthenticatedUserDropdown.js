@@ -12,7 +12,7 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
   var dashboardMenuItem = /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: "".concat(getConfig().GW_URL, "/gwc/")
   }, intl.formatMessage(messages.dashboard));
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Dropdown, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, getConfig().GW_URL, /*#__PURE__*/React.createElement(Dropdown, {
     className: "user-dropdown ml-3"
   }, /*#__PURE__*/React.createElement(Dropdown.Toggle, {
     variant: "inverse-outline-primary"
@@ -26,9 +26,9 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
   }, username)), /*#__PURE__*/React.createElement(Dropdown.Menu, {
     className: "dropdown-menu-right"
   }, /*#__PURE__*/React.createElement(Dropdown.Item, {
-    href: getConfig().GW_URL
+    href: "".concat(getConfig().GW_URL, "/profile")
   }, intl.formatMessage(messages.profile)), /*#__PURE__*/React.createElement(Dropdown.Item, {
-    href: getConfig().GW_URL
+    href: "".concat(getConfig().GW_URL, "/my-courses")
   }, intl.formatMessage(messages.courses)), dashboardMenuItem, /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: getConfig().LOGOUT_URL
   }, intl.formatMessage(messages.signOut)))));

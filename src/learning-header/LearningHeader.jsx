@@ -63,7 +63,7 @@ const LearningHeader = ({
   }, []);
 
   return (
-    <header className="learning-header">{courseId} / {authenticatedUser.username} / {courseTitle}
+    <header className="learning-header">{courseId} / {authenticatedUser.username} / {courseTitle} / {getConfig().GW_URL}
       <div style={{ 'background-color': '#00338d' }}>
         <a className="sr-only sr-only-focusable" href="#main-content">{intl.formatMessage(messages.skipNavLink)}</a>
         <div className="container-xl py-2 d-flex align-items-center">

@@ -17,7 +17,7 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
   );
 
   return (
-    <>
+    <>{getConfig().GW_URL}
       <Dropdown className="user-dropdown ml-3">
         <Dropdown.Toggle variant="inverse-outline-primary">
           <FontAwesomeIcon icon={faUserCircle} className="d-md-none" size="lg" />
@@ -26,10 +26,10 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
           </span>
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu-right">
-          <Dropdown.Item href={getConfig().GW_URL}>
+          <Dropdown.Item href={`${getConfig().GW_URL}/profile`}>
             {intl.formatMessage(messages.profile)}
           </Dropdown.Item>
-          <Dropdown.Item href={getConfig().GW_URL}>
+          <Dropdown.Item href={`${getConfig().GW_URL}/my-courses`}>
             {intl.formatMessage(messages.courses)}
           </Dropdown.Item>
           {dashboardMenuItem}
