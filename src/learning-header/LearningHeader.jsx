@@ -60,18 +60,11 @@ const LearningHeader = ({
   }, []);
 
   const progressItem = apiResponse ? (
-    <div className="container-xl py-2 gw_course_title">
-        <div>
-          <h1 style={{ 'font-weight': '800', 'text-transform': 'uppercase', 'font-size': '3rem !important', 'margin-bottom': '0px' }}>
-            {courseTitle}
-          </h1>
-        </div>
-        <div class="mt-2 mb-2">
-            <div class="gw_course_progress">
-                <span>Progreso:</span>
-                <span id="gw_course_progress_value">{apiResponse}</span>
-            </div>
-        </div>
+      <div class="mt-2 mb-2">
+          <div class="gw_course_progress">
+              <span>Progreso:</span>
+              <span id="gw_course_progress_value">{apiResponse}</span>
+          </div>
       </div>
   ) : null;
 
@@ -93,7 +86,14 @@ const LearningHeader = ({
           )}
         </div>
       </div>
-      {progressItem}
+      <div className="container-xl py-2 gw_course_title">
+        <div>
+          <h1 style={{ 'font-weight': '800', 'text-transform': 'uppercase', 'font-size': '3rem !important', 'margin-bottom': '0px' }}>
+            {courseTitle}
+          </h1>
+        </div>
+        {progressItem}
+      </div>
     </header>
     
   );
