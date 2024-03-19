@@ -49,18 +49,8 @@ var LearningHeader = function LearningHeader(_ref2) {
   var _useContext = useContext(AppContext),
     authenticatedUser = _useContext.authenticatedUser;
   var _useParams = useParams(),
-    courseIdFromUrl = _useParams.courseId;
-  console.log(courseId);
+    courseIdFromUrl = _useParams.courseIdFromUrl;
   console.log(courseIdFromUrl);
-  useEffect(function () {
-    // The courseId from the URL is the course we WANT to load.
-    dispatch(fetch(courseIdFromUrl));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [courseIdFromUrl]);
-  var _useSelector = useSelector(function (state) {
-      return state[0];
-    }),
-    courseId = _useSelector.courseId;
   var headerLogo = /*#__PURE__*/React.createElement(LinkedLogo, {
     className: "logo",
     src: getConfig().LOGO_URL_WHITE,
@@ -79,7 +69,7 @@ var LearningHeader = function LearningHeader(_ref2) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return fetch("/os-api/api/status/".concat(courseId, "/").concat(authenticatedUser.username));
+              return fetch("/os-api/api/status/".concat(courseIdFromUrl, "/").concat(authenticatedUser.username));
             case 3:
               response = _context.sent;
               _context.next = 6;
@@ -107,7 +97,7 @@ var LearningHeader = function LearningHeader(_ref2) {
   }, []);
   return /*#__PURE__*/React.createElement("header", {
     className: "learning-header"
-  }, courseId, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       'background-color': '#00338d'
     }

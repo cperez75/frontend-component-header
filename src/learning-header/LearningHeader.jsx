@@ -32,20 +32,9 @@ const LearningHeader = ({
   courseOrg, courseNumber, courseTitle, intl, showUserDropdown,
 }) => {
   const { authenticatedUser } = useContext(AppContext);
-  const { courseId: courseIdFromUrl } = useParams();
+  const { courseIdFromUrl } = useParams();
 
-  console.log(courseId);
   console.log(courseIdFromUrl);
-
-  useEffect(() => {
-    // The courseId from the URL is the course we WANT to load.
-    dispatch(fetch(courseIdFromUrl));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [courseIdFromUrl]);
-
-  const {
-    courseId
-  } = useSelector(state => state[0]);
 
   const headerLogo = (
     <LinkedLogo
@@ -60,7 +49,7 @@ const LearningHeader = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/os-api/api/status/${courseId}/${authenticatedUser.username}`);
+        const response = await fetch(`/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
         const textData = await response.text();
         setApiResponse(textData);
       } catch (error) {
@@ -72,7 +61,7 @@ const LearningHeader = ({
   }, []);
 
   return (
-    <header className="learning-header">{courseId}
+    <header className="learning-header">
       <div style={{ 'background-color': '#00338d' }}>
         <a className="sr-only sr-only-focusable" href="#main-content">{intl.formatMessage(messages.skipNavLink)}</a>
         <div className="container-xl py-2 d-flex align-items-center">
