@@ -70,22 +70,27 @@ var LearningHeader = function LearningHeader(_ref2) {
               return fetch("".concat(getConfig().LMS_BASE_URL, "/os-api/api/status/").concat(courseIdFromUrl, "/").concat(authenticatedUser.username));
             case 3:
               response = _context.sent;
-              _context.next = 6;
+              if (!response.ok) {
+                _context.next = 9;
+                break;
+              }
+              _context.next = 7;
               return response.text();
-            case 6:
+            case 7:
               textData = _context.sent;
               setApiResponse(textData);
-              _context.next = 13;
+            case 9:
+              _context.next = 14;
               break;
-            case 10:
-              _context.prev = 10;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
               console.error('Error fetching data:', _context.t0);
-            case 13:
+            case 14:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 10]]);
+        }, _callee, null, [[0, 11]]);
       }));
       return function fetchData() {
         return _ref3.apply(this, arguments);
@@ -93,6 +98,22 @@ var LearningHeader = function LearningHeader(_ref2) {
     }();
     fetchData();
   }, []);
+  var progressItem = apiResponse ? /*#__PURE__*/React.createElement("div", {
+    className: "container-xl py-2 gw_course_title"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    style: {
+      'font-weight': '800',
+      'text-transform': 'uppercase',
+      'font-size': '3rem !important',
+      'margin-bottom': '0px'
+    }
+  }, courseTitle)), /*#__PURE__*/React.createElement("div", {
+    "class": "mt-2 mb-2"
+  }, /*#__PURE__*/React.createElement("div", {
+    "class": "gw_course_progress"
+  }, /*#__PURE__*/React.createElement("span", null, "Progreso:"), /*#__PURE__*/React.createElement("span", {
+    id: "gw_course_progress_value"
+  }, apiResponse)))) : null;
   return /*#__PURE__*/React.createElement("header", {
     className: "learning-header"
   }, /*#__PURE__*/React.createElement("div", {
@@ -112,22 +133,7 @@ var LearningHeader = function LearningHeader(_ref2) {
   }), showUserDropdown && authenticatedUser && /*#__PURE__*/React.createElement(AuthenticatedUserDropdown, {
     username: authenticatedUser.username,
     admin: authenticatedUser.administrator
-  }), showUserDropdown && !authenticatedUser && /*#__PURE__*/React.createElement(AnonymousUserMenu, null))), /*#__PURE__*/React.createElement("div", {
-    className: "container-xl py-2 gw_course_title"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
-    style: {
-      'font-weight': '800',
-      'text-transform': 'uppercase',
-      'font-size': '3rem !important',
-      'margin-bottom': '0px'
-    }
-  }, courseTitle)), /*#__PURE__*/React.createElement("div", {
-    "class": "mt-2 mb-2"
-  }, /*#__PURE__*/React.createElement("div", {
-    "class": "gw_course_progress"
-  }, /*#__PURE__*/React.createElement("span", null, "Progreso:"), /*#__PURE__*/React.createElement("span", {
-    id: "gw_course_progress_value"
-  }, apiResponse)))));
+  }), showUserDropdown && !authenticatedUser && /*#__PURE__*/React.createElement(AnonymousUserMenu, null))), progressItem);
 };
 LearningHeader.propTypes = {
   courseOrg: PropTypes.string,

@@ -47,8 +47,10 @@ const LearningHeader = ({
     const fetchData = async () => {
       try {
         const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
-        const textData = await response.text();
-        setApiResponse(textData);
+        if (response.ok) {
+          const textData = await response.text();
+          setApiResponse(textData);
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -56,6 +58,22 @@ const LearningHeader = ({
 
     fetchData();
   }, []);
+
+  const progressItem = apiResponse ? (
+    <div className="container-xl py-2 gw_course_title">
+        <div>
+          <h1 style={{ 'font-weight': '800', 'text-transform': 'uppercase', 'font-size': '3rem !important', 'margin-bottom': '0px' }}>
+            {courseTitle}
+          </h1>
+        </div>
+        <div class="mt-2 mb-2">
+            <div class="gw_course_progress">
+                <span>Progreso:</span>
+                <span id="gw_course_progress_value">{apiResponse}</span>
+            </div>
+        </div>
+      </div>
+  ) : null;
 
   return (
     <header className="learning-header">
@@ -75,19 +93,7 @@ const LearningHeader = ({
           )}
         </div>
       </div>
-      <div className="container-xl py-2 gw_course_title">
-        <div>
-          <h1 style={{ 'font-weight': '800', 'text-transform': 'uppercase', 'font-size': '3rem !important', 'margin-bottom': '0px' }}>
-            {courseTitle}
-          </h1>
-        </div>
-        <div class="mt-2 mb-2">
-            <div class="gw_course_progress">
-                <span>Progreso:</span>
-                <span id="gw_course_progress_value">{apiResponse}</span>
-            </div>
-        </div>
-      </div>
+      {progressItem}
     </header>
     
   );
