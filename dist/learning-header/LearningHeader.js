@@ -67,7 +67,7 @@ var LearningHeader = function LearningHeader(_ref2) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return fetch("".concat(config.LMS_BASE_URL, "/os-api/api/status/").concat(courseIdFromUrl, "/").concat(authenticatedUser.username));
+              return fetch("".concat(getConfig().LMS_BASE_URL, "/os-api/api/status/").concat(courseIdFromUrl, "/").concat(authenticatedUser.username));
             case 3:
               response = _context.sent;
               _context.next = 6;

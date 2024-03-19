@@ -46,7 +46,7 @@ const LearningHeader = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${config.LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
+        const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
         const textData = await response.text();
         setApiResponse(textData);
       } catch (error) {
