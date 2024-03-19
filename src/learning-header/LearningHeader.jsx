@@ -32,14 +32,14 @@ const LearningHeader = ({
   courseOrg, courseNumber, courseTitle, intl, showUserDropdown,
 }) => {
   const { authenticatedUser } = useContext(AppContext);
-  const { courseIdFromUrl } = useParams();
+  const { courseId: courseIdFromUrl } = useParams();
 
   console.log(courseIdFromUrl);
 
   const headerLogo = (
     <LinkedLogo
       className="logo"
-      src={getConfig().LOGO_URL_WHITE}
+      src={getConfig().LOGO_WHITE_URL}
       alt={getConfig().SITE_NAME}
     />
   );
