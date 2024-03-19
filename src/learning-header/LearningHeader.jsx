@@ -34,6 +34,9 @@ const LearningHeader = ({
   const { authenticatedUser } = useContext(AppContext);
   const { courseId: courseIdFromUrl } = useParams();
 
+  console.log(courseId);
+  console.log(courseIdFromUrl);
+
   useEffect(() => {
     // The courseId from the URL is the course we WANT to load.
     dispatch(fetch(courseIdFromUrl));
@@ -42,7 +45,7 @@ const LearningHeader = ({
 
   const {
     courseId
-  } = useSelector(state => state[slice]);
+  } = useSelector(state => state[0]);
 
   const headerLogo = (
     <LinkedLogo

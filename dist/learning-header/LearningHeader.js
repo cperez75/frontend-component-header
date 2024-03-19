@@ -50,13 +50,15 @@ var LearningHeader = function LearningHeader(_ref2) {
     authenticatedUser = _useContext.authenticatedUser;
   var _useParams = useParams(),
     courseIdFromUrl = _useParams.courseId;
+  console.log(courseId);
+  console.log(courseIdFromUrl);
   useEffect(function () {
     // The courseId from the URL is the course we WANT to load.
     dispatch(fetch(courseIdFromUrl));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [courseIdFromUrl]);
   var _useSelector = useSelector(function (state) {
-      return state[slice];
+      return state[0];
     }),
     courseId = _useSelector.courseId;
   var headerLogo = /*#__PURE__*/React.createElement(LinkedLogo, {
