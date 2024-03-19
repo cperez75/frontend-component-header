@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
@@ -34,8 +33,6 @@ const LearningHeader = ({
   const { authenticatedUser } = useContext(AppContext);
   const { courseId: courseIdFromUrl } = useParams();
 
-  console.log(courseIdFromUrl);
-
   const headerLogo = (
     <LinkedLogo
       className="logo"
@@ -49,7 +46,7 @@ const LearningHeader = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
+        const response = await fetch(`${config.LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
         const textData = await response.text();
         setApiResponse(textData);
       } catch (error) {

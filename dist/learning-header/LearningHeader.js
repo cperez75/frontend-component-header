@@ -14,7 +14,6 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
@@ -50,7 +49,6 @@ var LearningHeader = function LearningHeader(_ref2) {
     authenticatedUser = _useContext.authenticatedUser;
   var _useParams = useParams(),
     courseIdFromUrl = _useParams.courseId;
-  console.log(courseIdFromUrl);
   var headerLogo = /*#__PURE__*/React.createElement(LinkedLogo, {
     className: "logo",
     src: getConfig().LOGO_WHITE_URL,
@@ -69,7 +67,7 @@ var LearningHeader = function LearningHeader(_ref2) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return fetch("/os-api/api/status/".concat(courseIdFromUrl, "/").concat(authenticatedUser.username));
+              return fetch("".concat(config.LMS_BASE_URL, "/os-api/api/status/").concat(courseIdFromUrl, "/").concat(authenticatedUser.username));
             case 3:
               response = _context.sent;
               _context.next = 6;
