@@ -46,10 +46,13 @@ const LearningHeader = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
+        //const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
+        const response = await fetch(`${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseIdFromUrl}`);
         if (response.ok) {
-          const textData = await response.text();
-          setApiResponse(textData);
+          const json = await response.json();
+          setJsonData(json);
+          const progress = (json.completion_summary.complete_count * 100) / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
+          setApiResponse(round(progress) + " %");
         }
       } catch (error) {
         console.error('Error fetching data:', error);

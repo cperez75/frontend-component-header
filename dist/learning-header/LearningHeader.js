@@ -61,36 +61,38 @@ var LearningHeader = function LearningHeader(_ref2) {
   useEffect(function () {
     var fetchData = /*#__PURE__*/function () {
       var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response, textData;
+        var response, json, progress;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return fetch("".concat(getConfig().LMS_BASE_URL, "/os-api/api/status/").concat(courseIdFromUrl, "/").concat(authenticatedUser.username));
+              return fetch("".concat(getConfig().LMS_BASE_URL, "/api/course_home/progress/").concat(courseIdFromUrl));
             case 3:
               response = _context.sent;
               if (!response.ok) {
-                _context.next = 9;
+                _context.next = 11;
                 break;
               }
               _context.next = 7;
-              return response.text();
+              return response.json();
             case 7:
-              textData = _context.sent;
-              setApiResponse(textData);
-            case 9:
-              _context.next = 14;
-              break;
+              json = _context.sent;
+              setJsonData(json);
+              progress = json.completion_summary.complete_count * 100 / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
+              setApiResponse(round(progress) + " %");
             case 11:
-              _context.prev = 11;
+              _context.next = 16;
+              break;
+            case 13:
+              _context.prev = 13;
               _context.t0 = _context["catch"](0);
               console.error('Error fetching data:', _context.t0);
-            case 14:
+            case 16:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 11]]);
+        }, _callee, null, [[0, 13]]);
       }));
       return function fetchData() {
         return _ref3.apply(this, arguments);
