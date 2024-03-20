@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
+import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 import AnonymousUserMenu from './AnonymousUserMenu';
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import messages from './messages';
@@ -67,7 +68,7 @@ var LearningHeader = function LearningHeader(_ref2) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return fetch("".concat(getConfig().LMS_BASE_URL, "/api/course_home/progress/").concat(courseIdFromUrl));
+              return getAuthenticatedHttpClient("".concat(getConfig().LMS_BASE_URL, "/api/course_home/progress/").concat(courseIdFromUrl));
             case 3:
               response = _context.sent;
               if (!response.ok) {

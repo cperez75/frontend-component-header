@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { auth, getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
+import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 
 import AnonymousUserMenu from './AnonymousUserMenu';
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
@@ -47,7 +48,7 @@ const LearningHeader = ({
     const fetchData = async () => {
       try {
         //const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
-        const response = await fetch(`${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseIdFromUrl}`);
+        const response = await getAuthenticatedHttpClient(`${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseIdFromUrl}`);
         if (response.ok) {
           const json = await response.json();
           setJsonData(json);
