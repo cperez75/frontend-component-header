@@ -68,7 +68,7 @@ var LearningHeader = function LearningHeader(_ref2) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return getAuthenticatedHttpClient("".concat(getConfig().LMS_BASE_URL, "/api/course_home/progress/").concat(courseIdFromUrl));
+              return getAuthenticatedHttpClient().get("".concat(getConfig().LMS_BASE_URL, "/api/course_home/progress/").concat(courseIdFromUrl));
             case 3:
               response = _context.sent;
               if (!response.ok) {
