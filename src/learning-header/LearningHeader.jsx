@@ -49,6 +49,7 @@ const LearningHeader = ({
       try {
         //const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
         const response = await getAuthenticatedHttpClient().get(`${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseIdFromUrl}`);
+        console.log(response);
         if (response.ok) {
           const json = await response.json();
           setJsonData(json);

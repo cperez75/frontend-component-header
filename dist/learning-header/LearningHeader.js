@@ -71,29 +71,30 @@ var LearningHeader = function LearningHeader(_ref2) {
               return getAuthenticatedHttpClient().get("".concat(getConfig().LMS_BASE_URL, "/api/course_home/progress/").concat(courseIdFromUrl));
             case 3:
               response = _context.sent;
+              console.log(response);
               if (!response.ok) {
-                _context.next = 11;
+                _context.next = 12;
                 break;
               }
-              _context.next = 7;
+              _context.next = 8;
               return response.json();
-            case 7:
+            case 8:
               json = _context.sent;
               setJsonData(json);
               progress = json.completion_summary.complete_count * 100 / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
               setApiResponse(round(progress) + " %");
-            case 11:
-              _context.next = 16;
+            case 12:
+              _context.next = 17;
               break;
-            case 13:
-              _context.prev = 13;
+            case 14:
+              _context.prev = 14;
               _context.t0 = _context["catch"](0);
               console.error('Error fetching data:', _context.t0);
-            case 16:
+            case 17:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 13]]);
+        }, _callee, null, [[0, 14]]);
       }));
       return function fetchData() {
         return _ref3.apply(this, arguments);
