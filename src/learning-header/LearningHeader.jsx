@@ -47,7 +47,6 @@ const LearningHeader = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        //const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
         const response = await getAuthenticatedHttpClient().get(`${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseIdFromUrl}`);
         if (response.status === 200) {
           const json = response.data;
@@ -65,7 +64,7 @@ const LearningHeader = ({
   const progressItem = apiResponse ? (
       <div class="mt-2 mb-2">
           <div class="gw_course_progress">
-              <span>Progreso: </span>
+              <span>{intl.formatMessage(messages.progress)}: </span>
               <span id="gw_course_progress_value">{apiResponse}</span>
           </div>
       </div>

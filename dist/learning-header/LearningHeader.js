@@ -98,7 +98,7 @@ var LearningHeader = function LearningHeader(_ref2) {
     "class": "mt-2 mb-2"
   }, /*#__PURE__*/React.createElement("div", {
     "class": "gw_course_progress"
-  }, /*#__PURE__*/React.createElement("span", null, "Progreso: "), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", null, intl.formatMessage(messages.progress), ": "), /*#__PURE__*/React.createElement("span", {
     id: "gw_course_progress_value"
   }, apiResponse))) : null;
   return /*#__PURE__*/React.createElement("header", {

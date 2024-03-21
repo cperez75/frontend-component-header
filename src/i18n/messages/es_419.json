@@ -26,6 +26,7 @@
   "general.signIn.sentenceCase": "Iniciar sesión",
   "header.menu.dashboard.label": "Panel de Control",
   "header.help.label": "Ayuda",
+  "header.progress.label": "Progreso",
   "header.menu.profile.label": "Mi Perfil",
   "header.menu.courses.label": "Mis cursos",
   "header.menu.account.label": "Cuenta",
