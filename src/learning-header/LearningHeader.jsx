@@ -53,7 +53,7 @@ const LearningHeader = ({
         if (response.status === 200) {
           const json = response.data;
           const progress = (json.completion_summary.complete_count * 100) / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
-          setApiResponse(round(progress) + " %");
+          setApiResponse(Math.round(progress) + " %");
         }
       } catch (error) {
         console.error('Error fetching data:', error);
