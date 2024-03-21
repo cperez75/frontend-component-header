@@ -72,29 +72,22 @@ var LearningHeader = function LearningHeader(_ref2) {
             case 3:
               response = _context.sent;
               console.log(response);
-              if (!(response.status === 200)) {
-                _context.next = 12;
-                break;
+              if (response.status === 200) {
+                json = response.data;
+                progress = json.completion_summary.complete_count * 100 / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
+                setApiResponse(round(progress) + " %");
               }
-              _context.next = 8;
-              return response.data.json();
-            case 8:
-              json = _context.sent;
-              setJsonData(json);
-              progress = json.completion_summary.complete_count * 100 / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
-              setApiResponse(round(progress) + " %");
-            case 12:
-              _context.next = 17;
+              _context.next = 11;
               break;
-            case 14:
-              _context.prev = 14;
+            case 8:
+              _context.prev = 8;
               _context.t0 = _context["catch"](0);
               console.error('Error fetching data:', _context.t0);
-            case 17:
+            case 11:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 14]]);
+        }, _callee, null, [[0, 8]]);
       }));
       return function fetchData() {
         return _ref3.apply(this, arguments);

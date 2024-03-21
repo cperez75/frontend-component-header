@@ -51,8 +51,7 @@ const LearningHeader = ({
         const response = await getAuthenticatedHttpClient().get(`${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseIdFromUrl}`);
         console.log(response);
         if (response.status === 200) {
-          const json = await response.data.json();
-          setJsonData(json);
+          const json = response.data;
           const progress = (json.completion_summary.complete_count * 100) / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
           setApiResponse(round(progress) + " %");
         }
