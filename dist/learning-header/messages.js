@@ -6,7 +6,7 @@ var messages = defineMessages({
     description: 'The text for the user menu Dashboard navigation link.'
   },
   progress: {
-    id: 'header.progress,label',
+    id: 'header.progress.label',
     desfaultMessage: 'Progress',
     description: 'The text for the progress percentage'
   },
