@@ -72,12 +72,12 @@ var LearningHeader = function LearningHeader(_ref2) {
             case 3:
               response = _context.sent;
               console.log(response);
-              if (!response.ok) {
+              if (!(response.status === 200)) {
                 _context.next = 12;
                 break;
               }
               _context.next = 8;
-              return response.json();
+              return response.data.json();
             case 8:
               json = _context.sent;
               setJsonData(json);
