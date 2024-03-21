@@ -49,7 +49,6 @@ const LearningHeader = ({
       try {
         //const response = await fetch(`${getConfig().LMS_BASE_URL}/os-api/api/status/${courseIdFromUrl}/${authenticatedUser.username}`);
         const response = await getAuthenticatedHttpClient().get(`${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseIdFromUrl}`);
-        console.log(response);
         if (response.status === 200) {
           const json = response.data;
           const progress = (json.completion_summary.complete_count * 100) / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
@@ -66,7 +65,7 @@ const LearningHeader = ({
   const progressItem = apiResponse ? (
       <div class="mt-2 mb-2">
           <div class="gw_course_progress">
-              <span>Progreso:</span>
+              <span>Progreso: </span>
               <span id="gw_course_progress_value">{apiResponse}</span>
           </div>
       </div>

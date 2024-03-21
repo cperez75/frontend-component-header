@@ -71,23 +71,22 @@ var LearningHeader = function LearningHeader(_ref2) {
               return getAuthenticatedHttpClient().get("".concat(getConfig().LMS_BASE_URL, "/api/course_home/progress/").concat(courseIdFromUrl));
             case 3:
               response = _context.sent;
-              console.log(response);
               if (response.status === 200) {
                 json = response.data;
                 progress = json.completion_summary.complete_count * 100 / (json.completion_summary.complete_count + json.completion_summary.incomplete_count);
                 setApiResponse(Math.round(progress) + " %");
               }
-              _context.next = 11;
+              _context.next = 10;
               break;
-            case 8:
-              _context.prev = 8;
+            case 7:
+              _context.prev = 7;
               _context.t0 = _context["catch"](0);
               console.error('Error fetching data:', _context.t0);
-            case 11:
+            case 10:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee, null, [[0, 7]]);
       }));
       return function fetchData() {
         return _ref3.apply(this, arguments);
@@ -99,7 +98,7 @@ var LearningHeader = function LearningHeader(_ref2) {
     "class": "mt-2 mb-2"
   }, /*#__PURE__*/React.createElement("div", {
     "class": "gw_course_progress"
-  }, /*#__PURE__*/React.createElement("span", null, "Progreso:"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", null, "Progreso: "), /*#__PURE__*/React.createElement("span", {
     id: "gw_course_progress_value"
   }, apiResponse))) : null;
   return /*#__PURE__*/React.createElement("header", {
