@@ -8,7 +8,7 @@ const messages = defineMessages({
   },
   progress: {
     id: 'header.progress.label',
-    desfaultMessage: 'Progress',
+    defaultMessage: 'Progress',
     description: 'The text for the progress percentage'
   },
   help: {
