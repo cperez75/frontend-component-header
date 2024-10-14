@@ -105,7 +105,7 @@ var LearningHeader = function LearningHeader(_ref2) {
     className: "learning-header"
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      'background-color': '#00338d'
+      'background-color': '#5c2483'
     }
   }, /*#__PURE__*/React.createElement("a", {
     className: "sr-only sr-only-focusable",
